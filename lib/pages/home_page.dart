@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shamo/pages/product_tile.dart';
 import 'package:shamo/theme.dart';
 import 'package:shamo/widgets/product_card.dart';
 
@@ -135,16 +136,14 @@ class HomePage extends StatelessWidget {
 
     Widget popularProducts() {
       return Container(
-        margin: EdgeInsets.only(
-          top: defaultMargin
-        ),
+        margin: EdgeInsets.only(top: defaultMargin),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
               SizedBox(
                 width: defaultMargin,
-              ), 
+              ),
               Row(
                 children: [
                   ProductCard(),
@@ -158,13 +157,40 @@ class HomePage extends StatelessWidget {
       );
     }
 
+    Widget newArrivalsTitle() {
+      return Container(
+        margin: EdgeInsets.only(
+            top: defaultMargin, left: defaultMargin, right: defaultMargin),
+        child: Text(
+          "New Arrivals",
+          style: primaryTextStyle.copyWith(fontSize: 22, fontWeight: semiBold),
+        ),
+      );
+    }
+
+    Widget newArrivals() {
+      return Container(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            children: [
+              ProductTile(),
+              ProductTile(),
+              ProductTile(),
+            ],
+          ),
+        ),
+      );
+    }
+
     return ListView(
       children: [
         header(),
         categories(),
         popularProductsTitle(),
-        popularProducts()
-        
+        popularProducts(),
+        newArrivalsTitle(),
+        newArrivals()
       ],
     );
   }
