@@ -11,7 +11,7 @@ class ProductCard extends StatelessWidget {
       height: 278,
       margin: EdgeInsets.only(right: defaultMargin),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: primaryTextColor),
+          borderRadius: BorderRadius.circular(20), color: Color(0xffECEDEF)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -46,7 +46,14 @@ class ProductCard extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 6,
-                  )
+                  ),
+                  Text(
+                    "\$85.00",
+                    style: priceTextStyle.copyWith(
+                      fontSize: 14,
+                      fontWeight: medium,
+                    ),
+                  ),
                 ],
               ))
         ],
